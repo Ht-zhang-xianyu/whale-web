@@ -21,6 +21,66 @@ paths:
                     $ref: "#/components/schemas/User"
                   code:
                     type: integer
+  "/api/v1/register":
+    post:
+      summary: register a new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginForm"
+      responses:
+        '200':
+          description: succeed to register a new user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
+  "/api/v1/delete":
+    post:
+      summary: delete an user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        '200':
+          description: succeed to delete the user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
+  "/api/v1/update":
+    post:
+      summary: update the user's profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        '200':
+          description: current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
   "/api/v1/login":
     options:
       summary: get csrf token
@@ -120,6 +180,18 @@ components:
           type: string
           format: ipv4
         description:
+          type: string
+        user_image:
+          type: string
+        wechat:
+          type: string
+        school:
+          type: string
+        major:
+          type: string
+        company:
+          type: string
+        position:
           type: string
         groups:
           type: array
